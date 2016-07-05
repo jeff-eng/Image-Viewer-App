@@ -19,4 +19,4 @@ This repository is practice building an Image Viewer iOS app based on the Projec
 * UIImage
 
 ## Attributions
-* [Hacking with Swift - Storm Viewer iOS App tutorial](www.hackingwithswift.com/read/1/overview)
+* [Hacking with Swift - Storm Viewer iOS App tutorial](http://www.hackingwithswift.com/read/1/overview)
