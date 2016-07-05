@@ -16,6 +16,7 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Images List"
         let fm = NSFileManager.defaultManager()
         let path = NSBundle.mainBundle().resourcePath!
         let items = try! fm.contentsOfDirectoryAtPath(path)
