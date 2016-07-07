@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jeffrey Eng. All rights reserved.
 //
 
+import Social
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -34,6 +35,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        
+        if detailImageView.image != nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(shareTapped))
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -46,6 +51,22 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
+    func shareTapped() {
+        let vc = UIActivityViewController(activityItems: [detailImageView.image!], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        presentViewController(vc, animated: true, completion: nil)
+    }
+
+// Sharing to Facebook using Social framework
+//    func shareTapped() {
+//        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//        vc.setInitialText("Look at this great picture!")
+//        vc.addImage(detailImageView.image!)
+//        vc.addURL(NSURL(string: "http://www.photolib.noaa.gov/nssl"))
+//        presentViewController(vc, animated: true, completion: nil)
+//        
+//    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
